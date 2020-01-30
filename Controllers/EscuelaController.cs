@@ -4,14 +4,14 @@ using Platzi_MVC.Models;
 
 namespace Platzi_MVC.Controllers
 {
-    public class SchoolController : Controller
+    public class EscuelaController : Controller
     {
         public IActionResult Index()
         {
-            var school = new School();
-            school.FoundationYear = 2005;
-            school.SchoolId = Guid.NewGuid().ToString();
-            school.SchoolName = "Platzi School";
+            var school = new Escuela();
+            school.AñoDeCreación = 2005;
+            school.UniqueId = Guid.NewGuid().ToString();
+            school.Nombre = "Platzi School";
 
             ViewBag.DynamicThing = "La Monja";
 
