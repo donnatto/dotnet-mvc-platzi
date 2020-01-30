@@ -50,7 +50,7 @@ namespace Platzi_MVC
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=School}/{action=Index}/{id?}");
             });
         }
     }
