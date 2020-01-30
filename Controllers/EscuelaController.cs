@@ -7,7 +7,6 @@ namespace Platzi_MVC.Controllers
 {
     public class EscuelaController : Controller
     {
-        private EscuelaContext _context;
         public IActionResult Index()
         {
             ViewBag.DynamicThing = "La Monja";
@@ -17,6 +16,8 @@ namespace Platzi_MVC.Controllers
             /* Se envia el objeto como parametro */
             return View(escuela);
         }
+
+        private EscuelaContext _context;
 
         public EscuelaController(EscuelaContext context)
         {
