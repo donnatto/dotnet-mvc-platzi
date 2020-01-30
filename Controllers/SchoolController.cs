@@ -13,6 +13,8 @@ namespace Platzi_MVC.Controllers
             school.SchoolId = Guid.NewGuid().ToString();
             school.SchoolName = "Platzi School";
 
+            ViewBag.DynamicThing = "La Monja";
+
             /* Se envia el objeto como parametro */
             return View(school);
         }

@@ -4,9 +4,13 @@
     ViewData["Title"] = "School Information";
 
     <!-- Layout por defecto -->
-    Layout = "_Layout";
+    Layout = "_Simple";
 }
 
 <h1>Escuela</h1>
 <h2>Nombre: @Model.SchoolName </h2>
 <p><strong>Año Fundacion: @Model.FoundationYear </strong> </p>
+
+<p>@ViewBag.DynamicThing</p>
+<!-- Otra forma -->
+<p>@ViewData["DynamicThing"]</p>
