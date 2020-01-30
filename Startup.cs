@@ -27,8 +27,13 @@ namespace Platzi_MVC
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<EscuelaContext>(
+            /* services.AddDbContext<EscuelaContext>(
                 options => options.UseInMemoryDatabase(databaseName:"testDB")
+            ); */
+
+            string connString = ConfigurationExtensions.GetConnectionString(this.Configuration, "DefaultConnection");
+            services.AddDbContext<EscuelaContext>(
+                options => options.UseSqlServer(connString);
             );
         }
 
