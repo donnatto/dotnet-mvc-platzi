@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Platzi_MVC.Models;
 
@@ -6,22 +7,20 @@ namespace Platzi_MVC.Controllers
 {
     public class EscuelaController : Controller
     {
+        private EscuelaContext _context;
         public IActionResult Index()
         {
-            var school = new Escuela();
-            school.AñoDeCreación = 2005;
-            school.UniqueId = Guid.NewGuid().ToString();
-            school.Nombre = "Platzi School";
-            school.Ciudad = "Bogota";
-            school.Pais = "Colombia";
-            school.Direccion = "Calle Wallaby";
-            school.TipoEscuela = TiposEscuela.Secundaria;
-
-
             ViewBag.DynamicThing = "La Monja";
 
+            var escuela = _context.Escuelas.FirstOrDefault();
+
             /* Se envia el objeto como parametro */
-            return View(school);
+            return View(escuela);
+        }
+
+        public EscuelaController(EscuelaContext context)
+        {
+            _context = context;
         }
     }
 }
