@@ -43,14 +43,21 @@ namespace Platzi_MVC.Controllers
         public IActionResult Create(Curso curso)
         {
             ViewBag.Fecha = DateTime.Now;
+            if (ModelState.IsValid)
+            {
+                var escuela = _context.Escuelas.FirstOrDefault();
 
-            var escuela = _context.Escuelas.FirstOrDefault();
+                curso.EscuelaId = escuela.Id;
+                _context.Cursos.Add(curso);
+                _context.SaveChanges();
 
-            curso.EscuelaId = escuela.Id;
-            _context.Cursos.Add(curso);
-            _context.SaveChanges();
+                ViewBag.Mess = "Curso creado";
+                return View("Index", curso);
+            } else
+            {
+                return View(curso);
+            }
 
-            return View();
         }
 
         private EscuelaContext _context;

@@ -9,6 +9,7 @@
 
 <h1>@ViewData["Title"]</h1>
 
+<div asp-validation-summary="All"></div>
 <form method="post">
     <div>
         <label asp-for="Nombre">Nombre</label>
@@ -22,7 +23,12 @@
 
     <div>
         <label asp-for="Jornada">Jornada</label>
-        <input asp-for="Jornada" />
+        @Html.DropdownList(
+            "Jornada",
+            Html.GetEnumSelectList<TiposJornada>(),
+            "Seleccione jornada",
+            new {@class = "form-control"}
+        )
     </div>
     <input type="submit" value="" />
 </form>
