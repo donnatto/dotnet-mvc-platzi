@@ -6,34 +6,34 @@ using Platzi_MVC.Models;
 
 namespace Platzi_MVC.Controllers
 {
-    public class AlumnoController : Controller
+    public class CursoController : Controller
     {
         [Route("Alumno/Index")]
-        [Route("Alumno/Index({alumnoId}")]
+        [Route("Alumno/Index({cursoId}")]
         public IActionResult Index(string id)
         {
             if (!string.IsNullOrWhiteSpace(id))
             {
-                var alumno =
-                    from al in _context.Alumnos
-                    where al.Id == id
-                    select al;
-                return View(alumno.FirstOrDefault());
+                var curso =
+                    from cur in _context.Cursos
+                    where cur.Id == id
+                    select cur;
+                return View(curso.FirstOrDefault());
             } else
             {
-                return View("MultiAlumno", _context.Alumnos);
+                return View("MultiCurso", _context.Cursos);
             }
         }
 
-        public IActionResult MultiAlumno()
+        public IActionResult MultiCurso()
         {
             ViewBag.Fecha = DateTime.Now;
 
-            return View("MultiAlumno", _context.Alumnos);
+            return View("MultiCurso", _context.Cursos);
         }
 
         private EscuelaContext _context;
-        public AlumnoController(EscuelaContext context)
+        public CursoController(EscuelaContext context)
         {
             _context = context;
         }

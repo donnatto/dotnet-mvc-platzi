@@ -1,0 +1,15 @@
+﻿@model List<Curso>
+
+@{
+    ViewData["Title"] = "Curso Information";
+
+    <!-- Layout por defecto -->
+    Layout = "_Simple";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<strong>Desde la vista parcial</strong>
+<partial name="ListaObjetoEscuela" />
+
+<p>@ViewBag.Fecha</p>
