@@ -9,16 +9,16 @@ namespace Platzi_MVC.Controllers
     {
         public IActionResult Index()
         {
-            return View(new Asignatura{Nombre="Programacion", UniqueId=Guid.NewGuid().ToString()});
+            return View(new Asignatura{Nombre="Programacion", Id=Guid.NewGuid().ToString()});
         }
 
         public IActionResult MultiAsignatura()
         {
             var listAsign = new List<Asignatura>(){
-                new Asignatura{UniqueId=Guid.NewGuid().ToString() ,Nombre="Matematicas"},
-                new Asignatura{UniqueId=Guid.NewGuid().ToString() ,Nombre="Educacion Fisica"},
-                new Asignatura{UniqueId=Guid.NewGuid().ToString() ,Nombre="Castellano"},
-                new Asignatura{UniqueId=Guid.NewGuid().ToString() ,Nombre="Ciencias Naturales"}
+                new Asignatura{Id=Guid.NewGuid().ToString() ,Nombre="Matematicas"},
+                new Asignatura{Id=Guid.NewGuid().ToString() ,Nombre="Educacion Fisica"},
+                new Asignatura{Id=Guid.NewGuid().ToString() ,Nombre="Castellano"},
+                new Asignatura{Id=Guid.NewGuid().ToString() ,Nombre="Ciencias Naturales"}
             };
 
             ViewBag.Fecha = DateTime.Now;

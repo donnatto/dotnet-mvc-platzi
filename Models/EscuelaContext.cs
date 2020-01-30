@@ -23,7 +23,7 @@ namespace Platzi_MVC.Models
 
             var escuela = new Escuela();
             escuela.AñoDeCreación = 2005;
-            escuela.UniqueId = Guid.NewGuid().ToString();
+            escuela.Id = Guid.NewGuid().ToString();
             escuela.Nombre = "Platzi School";
             escuela.Ciudad = "Bogota";
             escuela.Pais = "Colombia";
@@ -33,10 +33,10 @@ namespace Platzi_MVC.Models
             modelBuilder.Entity<Escuela>().HasData(escuela);
 
             modelBuilder.Entity<Asignatura>().HasData(
-                new Asignatura{ Nombre = "Math"},
-                new Asignatura{ Nombre = "Code"},
-                new Asignatura{ Nombre = "Physics"},
-                new Asignatura{ Nombre = "Logic"}
+                new Asignatura{Id=Guid.NewGuid().ToString() ,Nombre="Matematicas"},
+                new Asignatura{Id=Guid.NewGuid().ToString() ,Nombre="Educacion Fisica"},
+                new Asignatura{Id=Guid.NewGuid().ToString() ,Nombre="Castellano"},
+                new Asignatura{Id=Guid.NewGuid().ToString() ,Nombre="Ciencias Naturales"}
             );
 
             modelBuilder.Entity<Alumno>().HasData(GenerarAlumnos().ToArray());
@@ -54,10 +54,10 @@ namespace Platzi_MVC.Models
                 from a1 in apellido1
                 select new Alumno {
                     Nombre = $"{n1} {n2} {a1}",
-                    UniqueId = Guid.NewGuid().ToString()
+                    Id = Guid.NewGuid().ToString()
                 };
 
-            return listAlumnos.OrderBy((al) => al.UniqueId).ToList();
+            return listAlumnos.OrderBy((al) => al.Id).ToList();
         }
     }
 }
